@@ -11,6 +11,11 @@ app.use(express.json());
 
 seedWords();
 
+app.get('/api/health', (req, res) => {
+  const words = db.prepare('SELECT COUNT(*) AS n FROM words').get().n;
+  res.json({ ok: true, words });
+});
+
 app.get('/api/users', (req, res) => {
   res.json(db.prepare('SELECT id, name FROM users ORDER BY name').all());
 });
@@ -124,4 +129,4 @@ if (existsSync(dist)) {
 }
 
 const port = process.env.PORT || 3001;
-app.listen(port, () => console.log(`German-learn API listening on http://localhost:${port}`));
+app.listen(port, '0.0.0.0', () => console.log(`German-learn API listening on port ${port}`));

@@ -4,7 +4,10 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const here = dirname(fileURLToPath(import.meta.url));
-export const db = new DatabaseSync(join(here, 'german-learn.db'));
+
+// 雲端部署時把 DB_PATH 指到掛載的永久磁碟,本機開發則用專案目錄下的檔案
+const dbPath = process.env.DB_PATH ?? join(here, 'german-learn.db');
+export const db = new DatabaseSync(dbPath);
 
 db.exec(`
   PRAGMA foreign_keys = ON;

@@ -1,0 +1,37 @@
+# Fly.io 部署設定
+# app 名稱必須全球唯一,若部署時說已被使用,改這一行即可
+app = "german-learn-oliver"
+primary_region = "nrt" # 東京,離台灣最近
+
+[build]
+
+[env]
+  PORT = "8080"
+  DB_PATH = "/data/german-learn.db"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = "suspend"
+  auto_start_machines = true
+  # SQLite 資料存在單一磁碟上,只能跑一台機器,不要放大成多台
+  min_machines_running = 0
+
+  [http_service.http_options.response.headers]
+    X-Content-Type-Options = "nosniff"
+
+[[http_service.checks]]
+  grace_period = "10s"
+  interval = "30s"
+  method = "GET"
+  timeout = "5s"
+  path = "/api/health"
+
+# 永久磁碟:學習進度存在這裡,重新部署不會消失
+[mounts]
+  source = "german_data"
+  destination = "/data"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "256mb"

@@ -22,6 +22,34 @@ npm run dev
 - 德文發音:瀏覽器內建 TTS 唸出單字與例句
 - 鍵盤操作:空白鍵看答案,1–4 評分
 
+## 部署到雲端(Fly.io)
+
+前端會被打包進 `dist/`,由 Express 一起提供,所以線上只跑一個服務。學習進度存在掛載的永久磁碟 `/data`,重新部署不會消失。
+
+第一次部署:
+
+```bash
+brew install flyctl      # 已安裝可略過
+fly auth login           # 或 fly auth signup 註冊(需綁信用卡)
+fly launch --copy-config --no-deploy   # 沿用 fly.toml,若 app 名稱被占用會請你改名
+fly volumes create german_data --region nrt --size 1
+fly deploy
+fly open                 # 打開網址
+```
+
+之後每次更新:
+
+```bash
+fly deploy
+```
+
+注意事項:
+
+- **只能跑一台機器**。SQLite 存在單一磁碟上,`fly scale count` 放大成多台會讓資料不同步。
+- 沒有流量時機器會自動休眠(`auto_stop_machines`),有人打開網址時自動喚醒,第一次載入會慢幾秒。
+- 費用約每月數美金(shared-cpu-1x 256MB + 1GB 磁碟),實際以 Fly.io 帳單為準。
+- 備份資料:`fly ssh console -C "cat /data/german-learn.db" > backup.db`
+
 ## 之後規劃
 
 - Phase 2:文法教學 + 練習題
