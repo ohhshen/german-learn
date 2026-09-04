@@ -1,25 +1,27 @@
 # Deutsch lernen · 德文學習
 
-給家人朋友一起用的德文學習網頁。目前有兩塊:單字閃卡 + 間隔重複複習(SM-2,類似 Anki),以及 A1 文法課程 + 練習題。
+給家人朋友一起用的德文學習網頁。兩塊功能:單字閃卡 + 間隔重複複習(SM-2,類似 Anki),以及 A1 文法課程 + 練習題。
 
-## 快速開始
+**線上版**:https://ohhshen.github.io/german-learn/
+
+不用註冊、不用密碼,輸入名字就能開始。
+
+## 快速開始(本機開發)
 
 ```bash
 npm install
-npm install --prefix server
 npm run dev
 ```
 
-打開 http://localhost:5173 ,輸入名字就可以開始。前端 5173、API 3001,資料存在 `server/german-learn.db`(SQLite,首次啟動自動建立並匯入單字)。
-
-需求:Node.js 22 以上(使用內建 `node:sqlite`)。
+打開終端機顯示的網址即可。需求:Node.js 22 以上。
 
 ## 目前功能
 
 **共通**
 
-- 多使用者:免密碼,輸入名字即可,各自記錄學習進度
+- 多使用者:免密碼,同一台裝置上輸入不同名字各自記錄進度
 - 德文發音:瀏覽器內建 TTS 唸出單字與例句
+- 純前端:沒有伺服器與資料庫,內容打包在網頁裡,進度存在瀏覽器本機
 
 **Phase 1 · 單字閃卡**
 
@@ -32,67 +34,55 @@ npm run dev
 - 12 課 A1 基礎文法(名詞性別、現在式、語序、第四格、否定、複數、情態動詞、可分動詞、完成式…),每課先讀說明再做練習
 - 課文支援段落、變化表、可發音的例句、小提醒四種區塊
 - 72 題練習,分選擇題與填空題,作答後立刻給正解與解說
-- 答案存在伺服器端不外流;填空題容許大小寫、標點差異,沒有德文鍵盤打 `Brueder` 也算對 `Brüder`
+- 填空題容許大小寫、標點差異,沒有德文鍵盤打 `Brueder` 也算對 `Brüder`
 - 每課記錄最佳成績,首頁與課程列表顯示完成進度
 
-## 部署到雲端(Fly.io)
+## 學習進度存在哪裡
 
-前端會被打包進 `dist/`,由 Express 一起提供,所以線上只跑一個服務。學習進度存在掛載的永久磁碟 `/data`,重新部署不會消失。
+存在每個人自己瀏覽器的 `localStorage`,所以:
 
-第一次部署:
+- **不跨裝置同步**:手機上練的進度,電腦上看不到
+- 清除瀏覽器資料、換瀏覽器、或用無痕模式,進度會不見
+- 資料不會離開自己的裝置,也不會傳給任何人
 
-```bash
-brew install flyctl                    # 已安裝可略過
-fly auth login                         # 或 fly auth signup 註冊(需綁信用卡)
-fly apps create german-learn-oliver    # 名稱被占用就換一個,並同步改 fly.toml 的 app
-fly volumes create german_data --region nrt --size 1 --yes
-fly deploy
-fly open                               # 打開網址
-```
+當初為了免費、零維運才這樣設計。之後若真的需要跨裝置同步,得改回有後端的版本(commit `763956e` 有可用的 Express + SQLite 實作,可以從 git 歷史取回)。
 
-之後每次更新:
+## 部署
+
+推到 `main` 就會自動建置並發佈到 GitHub Pages(`.github/workflows/deploy.yml`),不需要手動操作。
 
 ```bash
-fly deploy
+git push
 ```
 
-注意事項:
-
-- **只能跑一台機器**。SQLite 存在單一磁碟上,`fly scale count` 放大成多台會讓資料不同步。
-- 沒有流量時機器會自動休眠(`auto_stop_machines`),有人打開網址時自動喚醒,第一次載入會慢幾秒。
-- 費用約每月數美金(shared-cpu-1x 256MB + 1GB 磁碟),實際以 Fly.io 帳單為準。
-- 備份資料:`fly ssh console -C "cat /data/german-learn.db" > backup.db`
-
-## 之後規劃
-
-- Phase 3:聽力測驗、情境對話練習
-- 包成 PWA,手機可加到主畫面當 App 用
+若之後改成自訂網域或改 repo 名稱,記得同步改 `vite.config.ts` 的 `base`。
 
 ## 專案結構
 
 ```
-src/                 前端(React + Vite + Tailwind)
+src/
   components/        使用者選擇、首頁、單字複習、文法課程列表與課程頁
-  api.ts             API client
+  api.ts             資料層:內容查詢、複習排程、練習判定(對元件維持 async 介面)
+  store.ts           localStorage 存取
+  srs.ts             SM-2 間隔重複排程
   speak.ts           德文 TTS
-server/
-  index.js           Express API
-  srs.js             SM-2 間隔重複排程
-  grammar.js         練習題答案比對(容錯處理)
-  db.js              SQLite schema 與匯入
-  data/seed-words.json       單字內容(要加字改這裡,重啟即匯入)
+  data/words.json            單字內容
   data/grammar-lessons.json  文法課程與練習題
+.github/workflows/deploy.yml  推上 main 自動部署到 GitHub Pages
 ```
 
 ## 新增單字
 
-編輯 `server/data/seed-words.json` 後重啟 API 即可。以 `german` 欄位為準,重複的字會更新而不是重複新增。
+編輯 `src/data/words.json`,以 `german` 欄位當唯一鍵(學習進度也是記在這個字上,所以改動已存在的 `german` 會讓該字的進度重新來過)。
+
+```jsonc
+{ "german": "der Tisch", "chinese": "桌子", "pos": "noun", "category": "日常物品",
+  "example_de": "Der Tisch ist neu.", "example_zh": "這張桌子是新的。" }
+```
 
 ## 新增或修改文法課程
 
-編輯 `server/data/grammar-lessons.json` 後重啟 API 即可。課程以 `slug` 為準、題目以「第幾題」為準做更新,改內容不會清掉大家已經累積的學習紀錄。
-
-一課的格式:
+編輯 `src/data/grammar-lessons.json`。課程以 `slug`、題目以「第幾題」為準,改內容不會清掉已存的成績。
 
 ```jsonc
 {
@@ -114,3 +104,8 @@ server/
 ```
 
 填空題比對時會忽略大小寫、頭尾空白與句尾標點,並把 `ä/ö/ü/ß` 和 `ae/oe/ue/ss` 視為相同。若這題就是要考大小寫(例如名詞大寫),加上 `"caseSensitive": true`。
+
+## 之後規劃
+
+- Phase 3:聽力測驗、情境對話練習
+- 包成 PWA,手機可加到主畫面當 App 用
