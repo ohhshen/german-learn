@@ -2,7 +2,8 @@ import express from 'express';
 import { existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { db, seedWords } from './db.js';
+import { db, seedWords, seedGrammar } from './db.js';
+import { checkAnswer } from './grammar.js';
 import { schedule, today } from './srs.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -10,6 +11,7 @@ const app = express();
 app.use(express.json());
 
 seedWords();
+seedGrammar();
 
 app.get('/api/health', (req, res) => {
   const words = db.prepare('SELECT COUNT(*) AS n FROM words').get().n;
@@ -119,7 +121,119 @@ app.get('/api/stats', (req, res) => {
     .prepare('SELECT COUNT(*) AS n FROM reviews WHERE user_id = ? AND interval_days >= 21')
     .get(userId).n;
 
-  res.json({ totalWords, seen, dueToday, learned, notStarted: totalWords - seen });
+  const lessonsTotal = db.prepare('SELECT COUNT(*) AS n FROM lessons').get().n;
+  const lessonsDone = db
+    .prepare('SELECT COUNT(*) AS n FROM lesson_progress WHERE user_id = ? AND completed_at IS NOT NULL')
+    .get(userId).n;
+
+  res.json({
+    totalWords,
+    seen,
+    dueToday,
+    learned,
+    notStarted: totalWords - seen,
+    lessonsTotal,
+    lessonsDone,
+  });
+});
+
+app.get('/api/grammar', (req, res) => {
+  const userId = Number(req.query.userId) || 0;
+  const rows = db
+    .prepare(
+      `SELECT l.slug, l.title, l.subtitle, l.minutes,
+              (SELECT COUNT(*) FROM exercises e WHERE e.lesson_id = l.id) AS exercise_count,
+              p.best_correct, p.total, p.completed_at
+       FROM lessons l
+       LEFT JOIN lesson_progress p ON p.lesson_id = l.id AND p.user_id = ?
+       ORDER BY l.sort_order`
+    )
+    .all(userId);
+
+  res.json(
+    rows.map((r) => ({
+      slug: r.slug,
+      title: r.title,
+      subtitle: r.subtitle,
+      minutes: r.minutes,
+      exerciseCount: r.exercise_count,
+      progress: r.completed_at
+        ? { correct: r.best_correct, total: r.total, completedAt: r.completed_at }
+        : null,
+    }))
+  );
+});
+
+app.get('/api/grammar/:slug', (req, res) => {
+  const lesson = db.prepare('SELECT * FROM lessons WHERE slug = ?').get(req.params.slug);
+  if (!lesson) return res.status(404).json({ error: '找不到這一課' });
+
+  // 答案留在伺服器端,前端拿到的題目不含解答。
+  const exercises = db
+    .prepare('SELECT id, type, prompt, options FROM exercises WHERE lesson_id = ? ORDER BY position')
+    .all(lesson.id)
+    .map((e) => ({
+      id: e.id,
+      type: e.type,
+      prompt: e.prompt,
+      options: e.options ? JSON.parse(e.options) : null,
+    }));
+
+  res.json({
+    slug: lesson.slug,
+    title: lesson.title,
+    subtitle: lesson.subtitle,
+    minutes: lesson.minutes,
+    sections: JSON.parse(lesson.sections),
+    exercises,
+  });
+});
+
+app.post('/api/grammar/answer', (req, res) => {
+  const exerciseId = Number(req.body?.exerciseId);
+  if (!exerciseId) return res.status(400).json({ error: 'exerciseId 必填' });
+
+  const row = db.prepare('SELECT * FROM exercises WHERE id = ?').get(exerciseId);
+  if (!row) return res.status(404).json({ error: '找不到這一題' });
+
+  res.json(checkAnswer(row, req.body?.answer));
+});
+
+app.post('/api/grammar/complete', (req, res) => {
+  const userId = Number(req.body?.userId);
+  const slug = String(req.body?.slug ?? '');
+  const correct = Number(req.body?.correct);
+  const total = Number(req.body?.total);
+  if (!userId || !slug) return res.status(400).json({ error: 'userId 與 slug 必填' });
+  if (!Number.isInteger(correct) || !Number.isInteger(total) || total <= 0 || correct < 0 || correct > total) {
+    return res.status(400).json({ error: '成績數字不正確' });
+  }
+
+  const lesson = db.prepare('SELECT id FROM lessons WHERE slug = ?').get(slug);
+  if (!lesson) return res.status(404).json({ error: '找不到這一課' });
+
+  const now = new Date().toISOString();
+  db.prepare(
+    `INSERT INTO lesson_progress (user_id, lesson_id, best_correct, total, attempts, completed_at, last_studied_at)
+     VALUES (?, ?, ?, ?, 1, ?, ?)
+     ON CONFLICT(user_id, lesson_id) DO UPDATE SET
+       best_correct = MAX(best_correct, excluded.best_correct),
+       total = excluded.total,
+       attempts = attempts + 1,
+       completed_at = COALESCE(completed_at, excluded.completed_at),
+       last_studied_at = excluded.last_studied_at`
+  ).run(userId, lesson.id, correct, total, now, now);
+
+  const saved = db
+    .prepare('SELECT best_correct, total, attempts, completed_at FROM lesson_progress WHERE user_id = ? AND lesson_id = ?')
+    .get(userId, lesson.id);
+
+  res.json({
+    correct: saved.best_correct,
+    total: saved.total,
+    attempts: saved.attempts,
+    completedAt: saved.completed_at,
+  });
 });
 
 const dist = join(here, '..', 'dist');

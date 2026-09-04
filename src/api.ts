@@ -19,6 +19,8 @@ export type Stats = {
   dueToday: number
   learned: number
   notStarted: number
+  lessonsTotal: number
+  lessonsDone: number
 }
 
 async function request<T>(url: string, init?: RequestInit): Promise<T> {
@@ -51,4 +53,57 @@ export const api = {
     }),
 
   getStats: (userId: number) => request<Stats>(`/api/stats?userId=${userId}`),
+}
+
+export type GrammarSection =
+  | { type: 'text'; heading?: string; body: string }
+  | { type: 'tip'; heading?: string; body: string }
+  | { type: 'examples'; heading?: string; items: { de: string; zh: string }[] }
+  | { type: 'table'; heading?: string; headers: string[]; rows: string[][] }
+
+export type LessonProgress = { correct: number; total: number; completedAt: string }
+
+export type LessonSummary = {
+  slug: string
+  title: string
+  subtitle: string | null
+  minutes: number | null
+  exerciseCount: number
+  progress: LessonProgress | null
+}
+
+export type Exercise = {
+  id: number
+  type: 'choice' | 'fill'
+  prompt: string
+  options: string[] | null
+}
+
+export type Lesson = {
+  slug: string
+  title: string
+  subtitle: string | null
+  minutes: number | null
+  sections: GrammarSection[]
+  exercises: Exercise[]
+}
+
+export type AnswerResult = { correct: boolean; expected: string; explanation: string | null }
+
+export const grammar = {
+  listLessons: (userId: number) => request<LessonSummary[]>(`/api/grammar?userId=${userId}`),
+
+  getLesson: (slug: string) => request<Lesson>(`/api/grammar/${slug}`),
+
+  answer: (exerciseId: number, answer: number | string) =>
+    request<AnswerResult>('/api/grammar/answer', {
+      method: 'POST',
+      body: JSON.stringify({ exerciseId, answer }),
+    }),
+
+  complete: (userId: number, slug: string, correct: number, total: number) =>
+    request<LessonProgress>('/api/grammar/complete', {
+      method: 'POST',
+      body: JSON.stringify({ userId, slug, correct, total }),
+    }),
 }

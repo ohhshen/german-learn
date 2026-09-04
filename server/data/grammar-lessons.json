@@ -1,0 +1,985 @@
+[
+  {
+    "slug": "nouns-gender",
+    "title": "名詞與三個性別",
+    "subtitle": "der / die / das,以及為什麼名詞都要大寫",
+    "minutes": 6,
+    "sections": [
+      {
+        "type": "text",
+        "heading": "每個名詞都有性別",
+        "body": "德文名詞分成陽性(der)、陰性(die)、中性(das)三種。性別和中文語感沒有關係 —— 「女孩」das Mädchen 是中性,「桌子」der Tisch 是陽性。所以背單字時不要只背 Tisch,要連冠詞一起背成「der Tisch」。"
+      },
+      {
+        "type": "table",
+        "heading": "定冠詞(主格)",
+        "headers": ["性別", "定冠詞", "例子"],
+        "rows": [
+          ["陽性", "der", "der Mann(男人)"],
+          ["陰性", "die", "die Frau(女人)"],
+          ["中性", "das", "das Kind(小孩)"],
+          ["複數", "die", "die Kinder(小孩們)"]
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "不定冠詞 ein / eine",
+        "body": "講「一個、某個」時用不定冠詞:陽性和中性都是 ein,陰性是 eine。複數沒有不定冠詞,直接不加:Das sind Kinder.(那些是小孩。)"
+      },
+      {
+        "type": "examples",
+        "heading": "看幾個句子",
+        "items": [
+          { "de": "Der Tisch ist neu.", "zh": "這張桌子是新的。" },
+          { "de": "Die Lampe ist schön.", "zh": "這盞燈很漂亮。" },
+          { "de": "Das ist ein Buch.", "zh": "這是一本書。" },
+          { "de": "Das ist eine Tasche.", "zh": "這是一個包包。" }
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "名詞一律大寫",
+        "body": "德文的名詞不管在句子的哪個位置,第一個字母都要大寫。這是德文最好認的特徵之一:一眼掃過去,大寫的字幾乎都是名詞。"
+      },
+      {
+        "type": "tip",
+        "body": "有幾條規律可以少背一點:-ung、-heit、-keit、-schaft、-ion 結尾幾乎都是 die;-chen、-lein 結尾一定是 das;指男性的職業或身分(der Lehrer、der Arzt)是 der。"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "choice",
+        "prompt": "___ Frau heißt Anna.",
+        "options": ["Der", "Die", "Das"],
+        "answer": 1,
+        "explanation": "Frau 是陰性,定冠詞用 die。"
+      },
+      {
+        "type": "choice",
+        "prompt": "___ Kind spielt im Garten.",
+        "options": ["Der", "Die", "Das"],
+        "answer": 2,
+        "explanation": "Kind 是中性,定冠詞用 das。"
+      },
+      {
+        "type": "choice",
+        "prompt": "下面哪一個名詞是陰性(die)?",
+        "options": ["Zeitung", "Tisch", "Buch"],
+        "answer": 0,
+        "explanation": "die Zeitung(報紙)—— -ung 結尾的名詞幾乎都是陰性。另外兩個是 der Tisch、das Buch。"
+      },
+      {
+        "type": "fill",
+        "prompt": "___ Tisch ist groß.(填定冠詞)",
+        "answers": ["der"],
+        "explanation": "der Tisch 是陽性。"
+      },
+      {
+        "type": "choice",
+        "prompt": "Das ist ___ Lampe.",
+        "options": ["ein", "eine", "einen"],
+        "answer": 1,
+        "explanation": "die Lampe 是陰性,不定冠詞用 eine。"
+      },
+      {
+        "type": "fill",
+        "prompt": "把 “das buch” 改成正確的德文寫法。",
+        "answers": ["das Buch"],
+        "caseSensitive": true,
+        "explanation": "名詞一律大寫:das Buch。"
+      }
+    ]
+  },
+  {
+    "slug": "present-tense",
+    "title": "動詞現在式",
+    "subtitle": "規則變化的六個字尾,一次記起來",
+    "minutes": 7,
+    "sections": [
+      {
+        "type": "text",
+        "heading": "字幹 + 字尾",
+        "body": "德文動詞的原形都以 -en 結尾(lernen、wohnen、spielen)。把 -en 拿掉剩下的是「字幹」(lern-),再依主詞加上字尾就完成變化。"
+      },
+      {
+        "type": "table",
+        "heading": "lernen(學)的現在式",
+        "headers": ["主詞", "字尾", "變化"],
+        "rows": [
+          ["ich(我)", "-e", "ich lerne"],
+          ["du(你)", "-st", "du lernst"],
+          ["er / sie / es(他/她/它)", "-t", "er lernt"],
+          ["wir(我們)", "-en", "wir lernen"],
+          ["ihr(你們)", "-t", "ihr lernt"],
+          ["sie / Sie(他們/您)", "-en", "sie lernen"]
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "兩個發音上的小例外",
+        "body": "字幹以 -t 或 -d 結尾(arbeiten、finden),為了好唸會多加一個 e:du arbeitest、er arbeitet、ihr arbeitet。字幹以 -s、-ß、-z 結尾(heißen、tanzen),du 只加 -t:du heißt、du tanzt。"
+      },
+      {
+        "type": "examples",
+        "heading": "看幾個句子",
+        "items": [
+          { "de": "Ich wohne in Taipeh.", "zh": "我住在台北。" },
+          { "de": "Du spielst sehr gut Fußball.", "zh": "你足球踢得很好。" },
+          { "de": "Er arbeitet in Berlin.", "zh": "他在柏林工作。" },
+          { "de": "Wir lernen Deutsch.", "zh": "我們在學德文。" }
+        ]
+      },
+      {
+        "type": "tip",
+        "body": "德文沒有「進行式」。Ich lerne Deutsch. 同時可以是「我在學德文」和「我(平常)學德文」,靠上下文區分。"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "fill",
+        "prompt": "Ich ___ in Taipeh.(wohnen)",
+        "answers": ["wohne"],
+        "explanation": "ich → 字尾 -e:ich wohne。"
+      },
+      {
+        "type": "fill",
+        "prompt": "Du ___ Fußball.(spielen)",
+        "answers": ["spielst"],
+        "explanation": "du → 字尾 -st:du spielst。"
+      },
+      {
+        "type": "fill",
+        "prompt": "Er ___ in Berlin.(arbeiten)",
+        "answers": ["arbeitet"],
+        "explanation": "字幹 arbeit- 以 -t 結尾,要多加一個 e:er arbeitet。"
+      },
+      {
+        "type": "choice",
+        "prompt": "Wir ___ Deutsch.",
+        "options": ["lernt", "lernen", "lernst"],
+        "answer": 1,
+        "explanation": "wir 的字尾是 -en,和原形長得一樣:wir lernen。"
+      },
+      {
+        "type": "fill",
+        "prompt": "Wie ___ du?(heißen)",
+        "answers": ["heißt", "heisst"],
+        "explanation": "字幹以 -ß 結尾,du 只加 -t:du heißt。"
+      },
+      {
+        "type": "choice",
+        "prompt": "Ihr ___ Kaffee.",
+        "options": ["trinkt", "trinken", "trinkst"],
+        "answer": 0,
+        "explanation": "ihr(你們)的字尾是 -t:ihr trinkt。"
+      }
+    ]
+  },
+  {
+    "slug": "sein-haben",
+    "title": "sein 與 haben",
+    "subtitle": "德文最重要的兩個動詞,都是不規則的",
+    "minutes": 6,
+    "sections": [
+      {
+        "type": "text",
+        "heading": "為什麼先學這兩個",
+        "body": "sein(是/在)和 haben(有)出現頻率最高,而且變化完全不規則,只能背。之後學完成式時還會再用到它們當助動詞,現在背熟很划算。"
+      },
+      {
+        "type": "table",
+        "heading": "sein(是)",
+        "headers": ["主詞", "變化", "例句"],
+        "rows": [
+          ["ich", "bin", "Ich bin müde."],
+          ["du", "bist", "Du bist nett."],
+          ["er / sie / es", "ist", "Sie ist Lehrerin."],
+          ["wir", "sind", "Wir sind aus Taiwan."],
+          ["ihr", "seid", "Ihr seid pünktlich."],
+          ["sie / Sie", "sind", "Sie sind zu Hause."]
+        ]
+      },
+      {
+        "type": "table",
+        "heading": "haben(有)",
+        "headers": ["主詞", "變化", "例句"],
+        "rows": [
+          ["ich", "habe", "Ich habe Zeit."],
+          ["du", "hast", "Hast du Hunger?"],
+          ["er / sie / es", "hat", "Er hat einen Bruder."],
+          ["wir", "haben", "Wir haben Urlaub."],
+          ["ihr", "habt", "Habt ihr Fragen?"],
+          ["sie / Sie", "haben", "Sie haben ein Auto."]
+        ]
+      },
+      {
+        "type": "tip",
+        "body": "seid(你們是)和 seit(自從)發音一樣,但意思完全不同 —— 動詞是 d 結尾的 seid。"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "fill",
+        "prompt": "Ich ___ Student.(sein)",
+        "answers": ["bin"],
+        "explanation": "ich bin。"
+      },
+      {
+        "type": "fill",
+        "prompt": "Wir ___ aus Taiwan.(sein)",
+        "answers": ["sind"],
+        "explanation": "wir sind。"
+      },
+      {
+        "type": "fill",
+        "prompt": "Er ___ Hunger.(haben)",
+        "answers": ["hat"],
+        "explanation": "er hat。德文說「有飢餓」而不是「餓了」。"
+      },
+      {
+        "type": "choice",
+        "prompt": "Ihr ___ sehr nett.",
+        "options": ["seid", "seit", "sind"],
+        "answer": 0,
+        "explanation": "ihr seid。seit 是介系詞「自從」,不是動詞。"
+      },
+      {
+        "type": "fill",
+        "prompt": "___ du Zeit?(haben)",
+        "answers": ["hast"],
+        "explanation": "du hast;問句時動詞放句首 → Hast du Zeit?"
+      },
+      {
+        "type": "choice",
+        "prompt": "Das ___ meine Schwester.",
+        "options": ["bin", "bist", "ist"],
+        "answer": 2,
+        "explanation": "主詞是 das(第三人稱單數)→ ist。"
+      }
+    ]
+  },
+  {
+    "slug": "word-order",
+    "title": "語序:動詞永遠在第二位",
+    "subtitle": "德文句子最核心的一條規則",
+    "minutes": 7,
+    "sections": [
+      {
+        "type": "text",
+        "heading": "第二「位」不是第二個字",
+        "body": "陳述句裡,變位動詞一定在第二個位置。一個位置可以是一個字,也可以是一整組意義相連的字(am Montag、mit dem Bus)。第一位可以放主詞,也可以放時間、地點來強調 —— 但只要第一位不是主詞,主詞就要被擠到動詞後面。"
+      },
+      {
+        "type": "examples",
+        "heading": "同一句話的三種說法",
+        "items": [
+          { "de": "Ich lerne heute Deutsch.", "zh": "我今天學德文。" },
+          { "de": "Heute lerne ich Deutsch.", "zh": "今天我學德文。(強調今天)" },
+          { "de": "Deutsch lerne ich heute.", "zh": "德文我今天學。(強調德文)" }
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "動詞後面的順序:時間 → 方式 → 地點",
+        "body": "句子中段有好幾個補充語時,習慣的順序是「什麼時候 → 怎麼樣 → 在哪裡」:Ich fahre morgen mit dem Bus nach Berlin.(我明天搭公車去柏林。)"
+      },
+      {
+        "type": "tip",
+        "body": "最常見的錯誤,是照中文語序寫成「Heute ich lerne Deutsch.」✗。看到句首不是主詞,就提醒自己把動詞和主詞對調。"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "choice",
+        "prompt": "哪一句是正確的?",
+        "options": ["Morgen ich gehe ins Kino.", "Morgen gehe ich ins Kino.", "Ich morgen gehe ins Kino."],
+        "answer": 1,
+        "explanation": "Morgen 占了第一位,動詞 gehe 必須在第二位,主詞 ich 退到動詞後面。"
+      },
+      {
+        "type": "choice",
+        "prompt": "把 ich / ins Büro / um acht Uhr / gehe 排成正確的句子。",
+        "options": ["Ich gehe um acht Uhr ins Büro.", "Ich um acht Uhr gehe ins Büro.", "Um acht Uhr ich gehe ins Büro."],
+        "answer": 0,
+        "explanation": "主詞第一位、動詞第二位,再來是時間、地點。"
+      },
+      {
+        "type": "choice",
+        "prompt": "Am Montag ___ wir nach Berlin.",
+        "options": ["fahren", "fahrt", "fährt"],
+        "answer": 0,
+        "explanation": "主詞是 wir,動詞用 fahren,而且要緊接在第一位 Am Montag 後面。"
+      },
+      {
+        "type": "fill",
+        "prompt": "把「Ich trinke heute Tee.」改成以 Heute 開頭的句子。",
+        "answers": ["Heute trinke ich Tee"],
+        "explanation": "Heute 移到第一位後,動詞仍在第二位:Heute trinke ich Tee."
+      },
+      {
+        "type": "choice",
+        "prompt": "Ins Kino ___ ich am Freitag.",
+        "options": ["gehe", "gehst", "geht"],
+        "answer": 0,
+        "explanation": "主詞還是 ich,只是被移到動詞後面,動詞仍配合 ich → gehe。"
+      },
+      {
+        "type": "choice",
+        "prompt": "哪一句是錯的?",
+        "options": ["Heute arbeite ich nicht.", "Ich arbeite heute nicht.", "Heute ich arbeite nicht."],
+        "answer": 2,
+        "explanation": "第三句把動詞擠到第三位了,不合規則。"
+      }
+    ]
+  },
+  {
+    "slug": "questions",
+    "title": "問句:W-Fragen 與 Ja/Nein-Fragen",
+    "subtitle": "會問問題,對話才接得下去",
+    "minutes": 6,
+    "sections": [
+      {
+        "type": "text",
+        "heading": "Ja/Nein 問句:動詞放句首",
+        "body": "要問「是不是」的問題,把變位動詞移到句首,主詞緊接在後面就好,不需要像英文那樣加助動詞。Du kommst aus Taiwan. → Kommst du aus Taiwan?"
+      },
+      {
+        "type": "text",
+        "heading": "W-Fragen:疑問詞第一位、動詞第二位",
+        "body": "有疑問詞的問句,疑問詞占第一位,動詞仍然在第二位 —— 和陳述句的規則一樣。Wo wohnst du?(你住哪裡?)"
+      },
+      {
+        "type": "table",
+        "heading": "常用疑問詞",
+        "headers": ["疑問詞", "意思", "例句"],
+        "rows": [
+          ["wer", "誰", "Wer ist das?"],
+          ["was", "什麼", "Was machst du?"],
+          ["wo", "在哪裡", "Wo wohnst du?"],
+          ["woher", "從哪裡來", "Woher kommst du?"],
+          ["wohin", "往哪裡去", "Wohin gehst du?"],
+          ["wann", "什麼時候", "Wann beginnt der Kurs?"],
+          ["wie", "如何 / 怎麼", "Wie heißt du?"],
+          ["warum", "為什麼", "Warum lernst du Deutsch?"],
+          ["wie viel", "多少(不可數)", "Wie viel kostet das?"]
+        ]
+      },
+      {
+        "type": "tip",
+        "body": "wo / woher / wohin 是三兄弟:在哪裡 / 從哪來 / 往哪去。問名字用 Wie heißt du?(字面是「你怎麼叫」),不是 Was。"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "choice",
+        "prompt": "___ kommst du? – Aus Taiwan.",
+        "options": ["Wohin", "Woher", "Wo"],
+        "answer": 1,
+        "explanation": "回答是「從台灣來」,所以問的是 woher(從哪裡)。"
+      },
+      {
+        "type": "choice",
+        "prompt": "___ wohnst du? – In Taipeh.",
+        "options": ["Wo", "Wohin", "Wann"],
+        "answer": 0,
+        "explanation": "回答是地點「在台北」→ wo。"
+      },
+      {
+        "type": "fill",
+        "prompt": "把「Du trinkst Kaffee.」改成 Ja/Nein 問句。",
+        "answers": ["Trinkst du Kaffee"],
+        "explanation": "動詞移到句首:Trinkst du Kaffee?"
+      },
+      {
+        "type": "choice",
+        "prompt": "___ heißt du? – Ich heiße Anna.",
+        "options": ["Wie", "Was", "Wer"],
+        "answer": 0,
+        "explanation": "德文問名字固定用 Wie heißt du?"
+      },
+      {
+        "type": "fill",
+        "prompt": "___ beginnt der Film? – Um acht Uhr.(填疑問詞)",
+        "answers": ["wann"],
+        "explanation": "回答是時間 → Wann。"
+      },
+      {
+        "type": "choice",
+        "prompt": "___ kostet das? – Drei Euro.",
+        "options": ["Wie viel", "Wie viele", "Wer"],
+        "answer": 0,
+        "explanation": "問價錢用 Wie viel(不可數)。Wie viele 用在可數名詞:Wie viele Bücher?"
+      }
+    ]
+  },
+  {
+    "slug": "akkusativ",
+    "title": "第四格 Akkusativ",
+    "subtitle": "只有陽性會變:der → den、ein → einen",
+    "minutes": 7,
+    "sections": [
+      {
+        "type": "text",
+        "heading": "什麼時候用第四格",
+        "body": "動詞的「直接受詞」用第四格 —— 也就是動作直接作用的對象。Ich kaufe einen Tisch.(我買一張桌子。)好消息是:四個性別裡只有陽性的冠詞會變,其他三個長得和主格一模一樣。"
+      },
+      {
+        "type": "table",
+        "heading": "主格 vs 第四格",
+        "headers": ["性別", "主格 Nominativ", "第四格 Akkusativ"],
+        "rows": [
+          ["陽性", "der / ein / kein", "den / einen / keinen"],
+          ["陰性", "die / eine / keine", "die / eine / keine"],
+          ["中性", "das / ein / kein", "das / ein / kein"],
+          ["複數", "die / — / keine", "die / — / keine"]
+        ]
+      },
+      {
+        "type": "examples",
+        "heading": "看幾個句子",
+        "items": [
+          { "de": "Ich habe einen Bruder.", "zh": "我有一個哥哥/弟弟。" },
+          { "de": "Wir kaufen die Lampe.", "zh": "我們買下那盞燈。" },
+          { "de": "Er isst das Brot.", "zh": "他吃那個麵包。" },
+          { "de": "Siehst du den Mann dort?", "zh": "你看到那邊那個男人嗎?" }
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "常見接第四格的動詞",
+        "body": "haben、kaufen、essen、trinken、sehen、brauchen、suchen、nehmen、lesen、machen 都接第四格受詞。"
+      },
+      {
+        "type": "tip",
+        "body": "初學階段只要牢牢記住「陽性 der 變 den、ein 變 einen」,第四格就對了一大半。"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "choice",
+        "prompt": "Ich habe ___ Hund.(der Hund)",
+        "options": ["ein", "einen", "eine"],
+        "answer": 1,
+        "explanation": "陽性受詞 → einen Hund。"
+      },
+      {
+        "type": "choice",
+        "prompt": "Wir kaufen ___ Lampe.(die Lampe)",
+        "options": ["die", "den", "das"],
+        "answer": 0,
+        "explanation": "陰性在第四格不變,還是 die。"
+      },
+      {
+        "type": "fill",
+        "prompt": "Er isst ___ Apfel.(der Apfel,用不定冠詞)",
+        "answers": ["einen"],
+        "explanation": "陽性第四格的不定冠詞是 einen。"
+      },
+      {
+        "type": "choice",
+        "prompt": "Ich sehe ___ Mann.",
+        "options": ["der", "den", "dem"],
+        "answer": 1,
+        "explanation": "sehen 接第四格,陽性 der → den。"
+      },
+      {
+        "type": "fill",
+        "prompt": "Sie trinkt ___ Wasser.(das Wasser,用定冠詞)",
+        "answers": ["das"],
+        "explanation": "中性在第四格不變,還是 das。"
+      },
+      {
+        "type": "choice",
+        "prompt": "Brauchst du ___ Stuhl?(der Stuhl)",
+        "options": ["einen", "ein", "eine"],
+        "answer": 0,
+        "explanation": "brauchen 接第四格,陽性 → einen。"
+      }
+    ]
+  },
+  {
+    "slug": "negation",
+    "title": "否定:nicht 與 kein",
+    "subtitle": "說「不」也要選對字",
+    "minutes": 6,
+    "sections": [
+      {
+        "type": "text",
+        "heading": "一句話分辨",
+        "body": "kein 否定「名詞」—— 而且是本來會搭配不定冠詞、或根本沒有冠詞的名詞。其他一切(動詞、形容詞、副詞、帶定冠詞或所有格的名詞)一律用 nicht。"
+      },
+      {
+        "type": "table",
+        "heading": "kein 的變化",
+        "headers": ["格 / 性別", "陽性", "陰性", "中性", "複數"],
+        "rows": [
+          ["主格", "kein", "keine", "kein", "keine"],
+          ["第四格", "keinen", "keine", "kein", "keine"]
+        ]
+      },
+      {
+        "type": "examples",
+        "heading": "kein 的例子",
+        "items": [
+          { "de": "Ich habe keine Zeit.", "zh": "我沒有時間。" },
+          { "de": "Das ist kein Problem.", "zh": "這不是問題。" },
+          { "de": "Er trinkt keinen Kaffee.", "zh": "他不喝咖啡。" }
+        ]
+      },
+      {
+        "type": "examples",
+        "heading": "nicht 的例子",
+        "items": [
+          { "de": "Ich komme heute nicht.", "zh": "我今天不來。" },
+          { "de": "Der Kaffee ist nicht gut.", "zh": "這咖啡不好喝。" },
+          { "de": "Ich kenne den Mann nicht.", "zh": "我不認識那個男人。" },
+          { "de": "Das ist nicht meine Tasche.", "zh": "那不是我的包包。" }
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "nicht 放哪裡",
+        "body": "要否定整句話時,nicht 通常放句尾(Ich arbeite heute nicht.);要否定某個特定成分時,放在那個成分前面(nicht gut、nicht heute、nicht meine Tasche)。"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "choice",
+        "prompt": "Ich habe ___ Geld.(das Geld)",
+        "options": ["kein", "nicht", "keine"],
+        "answer": 0,
+        "explanation": "否定沒有冠詞的中性名詞 → kein Geld。"
+      },
+      {
+        "type": "choice",
+        "prompt": "Der Film ist ___ interessant.",
+        "options": ["kein", "nicht"],
+        "answer": 1,
+        "explanation": "否定形容詞用 nicht。"
+      },
+      {
+        "type": "fill",
+        "prompt": "Ich habe ___ Zeit.(die Zeit,表示「沒有時間」)",
+        "answers": ["keine"],
+        "explanation": "陰性 → keine Zeit。"
+      },
+      {
+        "type": "choice",
+        "prompt": "Ich trinke ___ Kaffee.(der Kaffee)",
+        "options": ["keinen", "kein", "nicht"],
+        "answer": 0,
+        "explanation": "陽性名詞當第四格受詞 → keinen Kaffee。"
+      },
+      {
+        "type": "fill",
+        "prompt": "Er kommt heute ___.(他今天不來)",
+        "answers": ["nicht"],
+        "explanation": "否定整句,nicht 放句尾。"
+      },
+      {
+        "type": "choice",
+        "prompt": "Das ist ___ meine Tasche.",
+        "options": ["kein", "nicht"],
+        "answer": 1,
+        "explanation": "名詞前面已經有所有格 meine,這種情況用 nicht。"
+      }
+    ]
+  },
+  {
+    "slug": "plural",
+    "title": "名詞複數",
+    "subtitle": "五種變化型,冠詞一律 die",
+    "minutes": 6,
+    "sections": [
+      {
+        "type": "text",
+        "heading": "複數沒有捷徑,但有規律",
+        "body": "德文複數不像英文加 -s 就好,主要有五種型。好消息是:不管原本是什麼性別,複數的定冠詞一律是 die,而且複數沒有不定冠詞。"
+      },
+      {
+        "type": "table",
+        "heading": "五種複數型",
+        "headers": ["型", "單數 → 複數", "備註"],
+        "rows": [
+          ["-e", "der Tisch → die Tische", "常見於陽性"],
+          ["-er(常加變音)", "das Kind → die Kinder;das Buch → die Bücher", "多為中性單音節"],
+          ["-(e)n", "die Frau → die Frauen;die Lampe → die Lampen", "陰性最常見"],
+          ["-s", "das Auto → die Autos", "外來語"],
+          ["不變 / 只加變音", "der Lehrer → die Lehrer;der Bruder → die Brüder", "-er、-el、-en 結尾"]
+        ]
+      },
+      {
+        "type": "tip",
+        "body": "背單字時把複數一起記進去,寫成「die Lampe, -n」「das Buch, ¨-er」這種格式,以後就不用猜。"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "choice",
+        "prompt": "die Frau 的複數是?",
+        "options": ["Frauen", "Fraus", "Fraue"],
+        "answer": 0,
+        "explanation": "陰性多半加 -(e)n:die Frauen。"
+      },
+      {
+        "type": "choice",
+        "prompt": "das Buch 的複數是?",
+        "options": ["Buchen", "Bücher", "Buchs"],
+        "answer": 1,
+        "explanation": "加 -er 並變音:die Bücher。"
+      },
+      {
+        "type": "fill",
+        "prompt": "Ich habe zwei ___.(der Bruder)",
+        "answers": ["Brüder"],
+        "explanation": "只加變音,字尾不變:die Brüder。"
+      },
+      {
+        "type": "choice",
+        "prompt": "das Auto 的複數是?",
+        "options": ["Autos", "Autoen", "Auten"],
+        "answer": 0,
+        "explanation": "外來語多半加 -s:die Autos。"
+      },
+      {
+        "type": "fill",
+        "prompt": "Die ___ spielen im Garten.(das Kind)",
+        "answers": ["Kinder"],
+        "explanation": "das Kind → die Kinder。"
+      },
+      {
+        "type": "choice",
+        "prompt": "複數的定冠詞是?",
+        "options": ["der", "die", "das"],
+        "answer": 1,
+        "explanation": "不分性別,複數一律 die。"
+      }
+    ]
+  },
+  {
+    "slug": "modal-verbs",
+    "title": "情態動詞與句框",
+    "subtitle": "können、müssen、möchten:動詞原形丟到句尾",
+    "minutes": 7,
+    "sections": [
+      {
+        "type": "text",
+        "heading": "句框 Satzklammer",
+        "body": "情態動詞變位後放第二位,真正要做的動作用「原形」放到句尾,把句子夾在中間。Ich kann heute nicht kommen.(我今天不能來。)這個「前後夾住」的結構在德文裡到處都是,先在這裡習慣它。"
+      },
+      {
+        "type": "table",
+        "heading": "常用情態動詞",
+        "headers": ["原形", "意思", "ich / er", "du", "wir / sie", "ihr"],
+        "rows": [
+          ["können", "能、會", "kann", "kannst", "können", "könnt"],
+          ["müssen", "必須", "muss", "musst", "müssen", "müsst"],
+          ["möchten", "想要", "möchte", "möchtest", "möchten", "möchtet"],
+          ["wollen", "想、要", "will", "willst", "wollen", "wollt"],
+          ["dürfen", "可以(允許)", "darf", "darfst", "dürfen", "dürft"]
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "ich 和 er 長得一樣",
+        "body": "情態動詞的 ich 和 er/sie/es 形式完全相同,而且都不加字尾:ich kann、er kann;ich muss、sie muss。這點和一般動詞不一樣,很容易寫錯。"
+      },
+      {
+        "type": "examples",
+        "heading": "看幾個句子",
+        "items": [
+          { "de": "Ich möchte einen Kaffee.", "zh": "我想要一杯咖啡。" },
+          { "de": "Wir müssen jetzt gehen.", "zh": "我們現在必須走了。" },
+          { "de": "Kannst du Deutsch sprechen?", "zh": "你會說德文嗎?" },
+          { "de": "Hier darf man nicht rauchen.", "zh": "這裡不可以抽菸。" }
+        ]
+      },
+      {
+        "type": "tip",
+        "body": "點餐、買東西時 möchte 最好用,比 will 客氣得多:Ich möchte bitte einen Tee.(我想要一杯茶,謝謝。)"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "fill",
+        "prompt": "Ich ___ gut schwimmen.(können)",
+        "answers": ["kann"],
+        "explanation": "ich kann,不加字尾。"
+      },
+      {
+        "type": "choice",
+        "prompt": "Wir ___ jetzt gehen.",
+        "options": ["muss", "müssen", "müsst"],
+        "answer": 1,
+        "explanation": "wir → müssen。"
+      },
+      {
+        "type": "fill",
+        "prompt": "___ du Deutsch sprechen?(können)",
+        "answers": ["kannst"],
+        "explanation": "du kannst;問句時放句首 → Kannst du…?"
+      },
+      {
+        "type": "choice",
+        "prompt": "哪一句是正確的?",
+        "options": ["Ich kann sprechen Deutsch.", "Ich kann Deutsch sprechen.", "Ich kann Deutsch spreche."],
+        "answer": 1,
+        "explanation": "動詞原形 sprechen 要放到句尾,而且不變位。"
+      },
+      {
+        "type": "fill",
+        "prompt": "Er ___ einen Tee.(möchten)",
+        "answers": ["möchte"],
+        "explanation": "er möchte,和 ich 的形式相同。"
+      },
+      {
+        "type": "choice",
+        "prompt": "Ihr ___ hier nicht rauchen.",
+        "options": ["dürft", "darf", "dürfen"],
+        "answer": 0,
+        "explanation": "ihr → dürft。"
+      }
+    ]
+  },
+  {
+    "slug": "pronouns-possessive",
+    "title": "人稱代名詞與所有格",
+    "subtitle": "mich / dich / ihn,以及 mein、dein",
+    "minutes": 7,
+    "sections": [
+      {
+        "type": "table",
+        "heading": "人稱代名詞",
+        "headers": ["主格(誰做)", "第四格(對誰做)", "中文"],
+        "rows": [
+          ["ich", "mich", "我"],
+          ["du", "dich", "你"],
+          ["er", "ihn", "他"],
+          ["sie", "sie", "她"],
+          ["es", "es", "它"],
+          ["wir", "uns", "我們"],
+          ["ihr", "euch", "你們"],
+          ["sie / Sie", "sie / Sie", "他們 / 您"]
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "代名詞也看性別",
+        "body": "代替物品時要跟著那個名詞的性別走:Der Tisch ist neu. → Er ist neu.(他=桌子)。Die Lampe ist schön. → Sie ist schön. 不能一律用 es。"
+      },
+      {
+        "type": "table",
+        "heading": "所有格冠詞",
+        "headers": ["人", "所有格", "例子"],
+        "rows": [
+          ["ich", "mein", "mein Vater / meine Mutter"],
+          ["du", "dein", "dein Buch / deine Tasche"],
+          ["er / es", "sein", "sein Auto"],
+          ["sie", "ihr", "ihr Bruder"],
+          ["wir", "unser", "unsere Wohnung"],
+          ["ihr", "euer", "eure Kinder"],
+          ["sie / Sie", "ihr / Ihr", "ihre Eltern / Ihre Adresse"]
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "字尾跟著「被擁有的東西」",
+        "body": "所有格的字尾和 ein/kein 一樣,由後面那個名詞決定,和擁有者無關:mein Vater(陽)、meine Mutter(陰)、mein Kind(中)、meine Eltern(複)。"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "choice",
+        "prompt": "Das ist ___ Mutter.(我的)",
+        "options": ["mein", "meine", "meinen"],
+        "answer": 1,
+        "explanation": "Mutter 是陰性 → meine。"
+      },
+      {
+        "type": "fill",
+        "prompt": "Ich liebe ___.(du)",
+        "answers": ["dich"],
+        "explanation": "du 的第四格是 dich。"
+      },
+      {
+        "type": "choice",
+        "prompt": "Ich sehe ___ morgen.(er)",
+        "options": ["er", "ihn", "ihm"],
+        "answer": 1,
+        "explanation": "sehen 接第四格,er → ihn。"
+      },
+      {
+        "type": "fill",
+        "prompt": "Das ist ___ Buch.(我的)",
+        "answers": ["mein"],
+        "explanation": "Buch 是中性 → mein Buch。"
+      },
+      {
+        "type": "choice",
+        "prompt": "___ Eltern wohnen in Berlin.(我的)",
+        "options": ["Mein", "Meine", "Meinen"],
+        "answer": 1,
+        "explanation": "複數 → meine Eltern。"
+      },
+      {
+        "type": "choice",
+        "prompt": "Kennst du ___?(我們)",
+        "options": ["uns", "wir", "euch"],
+        "answer": 0,
+        "explanation": "wir 的第四格是 uns。"
+      }
+    ]
+  },
+  {
+    "slug": "separable-verbs",
+    "title": "可分動詞",
+    "subtitle": "前綴會被踢到句尾的那種動詞",
+    "minutes": 6,
+    "sections": [
+      {
+        "type": "text",
+        "heading": "動詞被拆成兩半",
+        "body": "aufstehen(起床)、einkaufen(購物)、anrufen(打電話)這類動詞由「前綴 + 動詞」組成。在現在式的句子裡,動詞本體變位放第二位,前綴被拆下來丟到句尾 —— 又是一個句框。"
+      },
+      {
+        "type": "examples",
+        "heading": "看幾個句子",
+        "items": [
+          { "de": "Ich stehe um sieben Uhr auf.", "zh": "我七點起床。" },
+          { "de": "Wir kaufen am Samstag ein.", "zh": "我們星期六去買東西。" },
+          { "de": "Ich rufe dich später an.", "zh": "我晚點打電話給你。" },
+          { "de": "Kommst du mit?", "zh": "你要一起來嗎?" }
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "哪些前綴會分開",
+        "body": "常見的可分前綴:an-、auf-、aus-、ab-、ein-、mit-、vor-、zu-、weg-、zurück-,它們念的時候有重音。不可分的前綴是 be-、ver-、er-、ent-、ge-、emp-(bezahlen、verstehen、erklären),永遠黏著不動。"
+      },
+      {
+        "type": "tip",
+        "body": "遇到情態動詞時不用拆,直接把完整原形放句尾:Ich muss früh aufstehen.(我必須早起。)"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "choice",
+        "prompt": "哪一句是正確的?",
+        "options": ["Ich aufstehe um sieben Uhr.", "Ich stehe um sieben Uhr auf.", "Ich stehe auf um sieben Uhr."],
+        "answer": 1,
+        "explanation": "前綴 auf 要放到句尾。"
+      },
+      {
+        "type": "fill",
+        "prompt": "Wir kaufen am Samstag ___.(einkaufen)",
+        "answers": ["ein"],
+        "explanation": "前綴 ein 放句尾。"
+      },
+      {
+        "type": "choice",
+        "prompt": "___ du heute mit?(mitkommen)",
+        "options": ["Kommst", "Mitkommst", "Kommen"],
+        "answer": 0,
+        "explanation": "動詞本體 kommst 放句首,前綴 mit 留在句尾。"
+      },
+      {
+        "type": "choice",
+        "prompt": "Ich muss früh ___.",
+        "options": ["aufstehen", "stehe auf", "auf stehen"],
+        "answer": 0,
+        "explanation": "有情態動詞時,可分動詞用完整原形放句尾。"
+      },
+      {
+        "type": "fill",
+        "prompt": "Ich rufe dich später ___.(anrufen)",
+        "answers": ["an"],
+        "explanation": "前綴 an 放句尾。"
+      },
+      {
+        "type": "choice",
+        "prompt": "哪一個動詞「不可分」?",
+        "options": ["verstehen", "anrufen", "einkaufen"],
+        "answer": 0,
+        "explanation": "ver- 是不可分前綴:Ich verstehe das nicht."
+      }
+    ]
+  },
+  {
+    "slug": "perfekt",
+    "title": "完成式 Perfekt",
+    "subtitle": "講「昨天做了什麼」就靠這個",
+    "minutes": 8,
+    "sections": [
+      {
+        "type": "text",
+        "heading": "口語的過去式就是完成式",
+        "body": "德文人講過去發生的事,日常口語幾乎都用完成式:haben 或 sein(變位、第二位)+ Partizip II(句尾)。又是一個句框。Ich habe gestern Deutsch gelernt.(我昨天學了德文。)"
+      },
+      {
+        "type": "text",
+        "heading": "Partizip II 怎麼變",
+        "body": "規則動詞:ge + 字幹 + t(machen → gemacht、lernen → gelernt、kaufen → gekauft)。不規則動詞:ge + 字幹 + en,而且母音常會變(trinken → getrunken、essen → gegessen、sehen → gesehen、fahren → gefahren),只能一個個記。"
+      },
+      {
+        "type": "text",
+        "heading": "haben 還是 sein?",
+        "body": "大多數動詞用 haben。表示「位移」或「狀態改變」的動詞用 sein:gehen、fahren、kommen、fliegen、aufstehen、bleiben,還有 sein 自己(ist gewesen)和 werden。"
+      },
+      {
+        "type": "examples",
+        "heading": "看幾個句子",
+        "items": [
+          { "de": "Ich habe gestern Deutsch gelernt.", "zh": "我昨天學了德文。" },
+          { "de": "Wir haben Pizza gegessen.", "zh": "我們吃了披薩。" },
+          { "de": "Er ist nach Berlin gefahren.", "zh": "他去了柏林。" },
+          { "de": "Bist du gestern zu Hause geblieben?", "zh": "你昨天待在家嗎?" }
+        ]
+      },
+      {
+        "type": "tip",
+        "body": "兩個小例外:-ieren 結尾的動詞不加 ge-(studieren → studiert);可分動詞的 ge- 夾在中間(aufstehen → aufgestanden、einkaufen → eingekauft)。"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "fill",
+        "prompt": "Ich habe gestern Deutsch ___.(lernen)",
+        "answers": ["gelernt"],
+        "explanation": "規則動詞:ge + lern + t。"
+      },
+      {
+        "type": "choice",
+        "prompt": "Wir ___ Pizza gegessen.",
+        "options": ["haben", "sind", "hat"],
+        "answer": 0,
+        "explanation": "essen 用 haben,主詞 wir → haben。"
+      },
+      {
+        "type": "fill",
+        "prompt": "Er ist nach Berlin ___.(fahren)",
+        "answers": ["gefahren"],
+        "explanation": "不規則動詞,ge + fahr + en。"
+      },
+      {
+        "type": "choice",
+        "prompt": "Ich ___ um acht Uhr aufgestanden.",
+        "options": ["habe", "bin", "ist"],
+        "answer": 1,
+        "explanation": "aufstehen 是狀態改變的動詞,用 sein → ich bin。"
+      },
+      {
+        "type": "fill",
+        "prompt": "Was hast du gestern ___?(machen)",
+        "answers": ["gemacht"],
+        "explanation": "ge + mach + t。"
+      },
+      {
+        "type": "choice",
+        "prompt": "Sie hat Kaffee ___.(trinken)",
+        "options": ["getrinkt", "getrunken", "gedrunken"],
+        "answer": 1,
+        "explanation": "trinken 是不規則動詞:getrunken。"
+      }
+    ]
+  }
+]

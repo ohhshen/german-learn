@@ -1,10 +1,18 @@
 import { useState } from 'react'
 import type { User } from './api'
+import { GrammarLesson } from './components/GrammarLesson'
+import { GrammarList } from './components/GrammarList'
 import { Home } from './components/Home'
 import { ReviewSession } from './components/ReviewSession'
 import { UserSelect } from './components/UserSelect'
 
 const STORAGE_KEY = 'german-learn:user'
+
+type View =
+  | { name: 'home' }
+  | { name: 'review' }
+  | { name: 'grammar' }
+  | { name: 'lesson'; slug: string }
 
 function loadUser(): User | null {
   try {
@@ -17,11 +25,11 @@ function loadUser(): User | null {
 
 export default function App() {
   const [user, setUser] = useState<User | null>(loadUser)
-  const [reviewing, setReviewing] = useState(false)
+  const [view, setView] = useState<View>({ name: 'home' })
 
   function selectUser(next: User | null) {
     setUser(next)
-    setReviewing(false)
+    setView({ name: 'home' })
     try {
       if (next) localStorage.setItem(STORAGE_KEY, JSON.stringify(next))
       else localStorage.removeItem(STORAGE_KEY)
@@ -31,12 +39,35 @@ export default function App() {
   }
 
   if (!user) return <UserSelect onSelect={selectUser} />
-  if (reviewing) return <ReviewSession user={user} onExit={() => setReviewing(false)} />
-  return (
-    <Home
-      user={user}
-      onStart={() => setReviewing(true)}
-      onSwitchUser={() => selectUser(null)}
-    />
-  )
+
+  switch (view.name) {
+    case 'review':
+      return <ReviewSession user={user} onExit={() => setView({ name: 'home' })} />
+    case 'grammar':
+      return (
+        <GrammarList
+          user={user}
+          onOpen={(slug) => setView({ name: 'lesson', slug })}
+          onBack={() => setView({ name: 'home' })}
+        />
+      )
+    case 'lesson':
+      return (
+        <GrammarLesson
+          key={view.slug}
+          user={user}
+          slug={view.slug}
+          onBack={() => setView({ name: 'grammar' })}
+        />
+      )
+    default:
+      return (
+        <Home
+          user={user}
+          onStartReview={() => setView({ name: 'review' })}
+          onOpenGrammar={() => setView({ name: 'grammar' })}
+          onSwitchUser={() => selectUser(null)}
+        />
+      )
+  }
 }

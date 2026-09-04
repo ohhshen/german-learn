@@ -5,11 +5,13 @@ const NEW_PER_SESSION = 10
 
 export function Home({
   user,
-  onStart,
+  onStartReview,
+  onOpenGrammar,
   onSwitchUser,
 }: {
   user: User
-  onStart: () => void
+  onStartReview: () => void
+  onOpenGrammar: () => void
   onSwitchUser: () => void
 }) {
   const [stats, setStats] = useState<Stats | null>(null)
@@ -40,16 +42,29 @@ export function Home({
       </div>
 
       <button
-        onClick={onStart}
+        onClick={onStartReview}
         disabled={pending === 0}
-        className="mt-8 rounded-2xl bg-amber-500 px-6 py-5 text-lg font-semibold text-white shadow-sm transition hover:bg-amber-600 disabled:bg-stone-200 disabled:text-stone-400"
+        className="mt-8 rounded-2xl bg-amber-500 px-6 py-5 text-left text-lg font-semibold text-white shadow-sm transition hover:bg-amber-600 disabled:bg-stone-200 disabled:text-stone-400"
       >
-        {pending > 0 ? `開始複習 · ${pending} 張` : '今天的複習完成了 🎉'}
+        <span className="block">
+          {pending > 0 ? `開始複習單字 · ${pending} 張` : '今天的單字複習完成了 🎉'}
+        </span>
+        <span className="mt-1 block text-sm font-normal opacity-80">
+          每次最多加入 {NEW_PER_SESSION} 個新單字,依記憶曲線安排複習
+        </span>
       </button>
 
-      <p className="mt-4 text-center text-sm text-stone-400">
-        每次最多加入 {NEW_PER_SESSION} 個新單字,並依記憶曲線安排複習
-      </p>
+      <button
+        onClick={onOpenGrammar}
+        className="mt-3 rounded-2xl border border-stone-200 bg-white px-6 py-5 text-left text-lg font-semibold text-stone-900 shadow-sm transition hover:border-amber-400 hover:shadow"
+      >
+        <span className="block">文法課程 📘</span>
+        <span className="mt-1 block text-sm font-normal text-stone-500">
+          {stats
+            ? `A1 基礎文法 · 已完成 ${stats.lessonsDone}/${stats.lessonsTotal} 課`
+            : 'A1 基礎文法,先讀說明再做練習'}
+        </span>
+      </button>
     </div>
   )
 }
