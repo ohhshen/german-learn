@@ -29,12 +29,12 @@ npm run dev
 第一次部署:
 
 ```bash
-brew install flyctl      # 已安裝可略過
-fly auth login           # 或 fly auth signup 註冊(需綁信用卡)
-fly launch --copy-config --no-deploy   # 沿用 fly.toml,若 app 名稱被占用會請你改名
-fly volumes create german_data --region nrt --size 1
+brew install flyctl                    # 已安裝可略過
+fly auth login                         # 或 fly auth signup 註冊(需綁信用卡)
+fly apps create german-learn-oliver    # 名稱被占用就換一個,並同步改 fly.toml 的 app
+fly volumes create german_data --region nrt --size 1 --yes
 fly deploy
-fly open                 # 打開網址
+fly open                               # 打開網址
 ```
 
 之後每次更新:
